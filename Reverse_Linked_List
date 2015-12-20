@@ -7,12 +7,13 @@ typedef struct node
 Node* Reverse(Node* n)
 {
   Node* Pre = NULL, *Curr = n, *Next = NULL;
-  while(Curr)
+  while(Curr->next)
   {
     Next = Curr->next;
     Curr->next = Pre;
     Pre = Curr;
     Curr = Next;
   }
-  return Pre;
+  Curr->next = Pre;
+  return Curr;
 }
